@@ -13,7 +13,7 @@ class CreateTodolistsTable extends Migration
      */
     public function up()
     {
-        Schema::create('todolists', function (Blueprint $table) {
+        Schema::create('todo_lists', function (Blueprint $table) {
             $table->id();
             $table->string('content',191);
             $table->timestamp('created_at')->useCurrent()->nullable();
@@ -28,6 +28,6 @@ class CreateTodolistsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('todolists');
+        Schema::dropIfExists('TodoLists');
     }
 }

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\TodoList;
 
 class TodoListsTableSeeder extends Seeder
 {
@@ -14,9 +15,14 @@ class TodoListsTableSeeder extends Seeder
      */
     public function run()
     {
-        $param = [
-            'content' => 'hasiru'
-        ];
-        DB::table('todolists')->insert($param);
+        TodoList::factory()->count(2)->create();
+        // $param = [
+        //     'content' => 'hasiru'
+        // ];
+        // DB::table('todo_lists')->insert($param);
+        // $param = [
+        //     'content' => 'aruku'
+        // ];
+        // DB::table('todo_lists')->insert($param);
     }
 }

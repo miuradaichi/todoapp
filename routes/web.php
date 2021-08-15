@@ -14,9 +14,9 @@ use App\Http\Controllers\TodoController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/',[TodoController::class,'index']);
 
@@ -24,4 +24,4 @@ Route::post('/todo/create',[TodoController::class,'create']);
 
 Route::post('/todo/update',[TodoController::class,'update']);
 
-Route::post('/todo/dalete',[TodoController::class,'delete']);
+Route::post('/todo/delete',[TodoController::class,'delete']);
