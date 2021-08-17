@@ -18,8 +18,6 @@
                     <input type="submit" value="追加" formaction="/todo/create" class="add">
                 </div>
             </form>
-            <form action="/todo/update" method="post">
-            @csrf
                 <table>
                     <tr>
                         <th></th>
@@ -32,17 +30,22 @@
                     <tr>
                         <td><input type="hidden" name="id" value="{{$item->id}}"></td>
                         <td>{{$item->created_at}}</td>
-                        <td><input type="text" name="content" value="{{$item->content}}" class="txtbox2"></td>
+                        <form action="{{ route('todo.update', ['id' => $item->id]) }}" method="post">
+                                @csrf
+                            <td><input type="text" name="content" value="{{$item->content}}" class="txtbox2"></td>
+                            <td>
+                                <input type="submit" value="更新"  class="update">
+                            </td>
+                        </form>
                         <td>
-                            <input type="submit" value="更新" formaction="/todo/update" class="update">
-                        </td>
-                        <td>
-                            <input type="submit" value="削除" formaction="/todo/delete" class="delete">
+                            <form action="{{ route('todo.delete', ['id' => $item->id]) }}" method="post">
+                                @csrf
+                                <input type="submit" value="削除" class="delete">
+                            </form>
                         </td>
                     </tr>
                     @endforeach
                 </table>
-            </form>
         </div>
 </body>
 </html>

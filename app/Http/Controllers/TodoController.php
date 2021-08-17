@@ -20,16 +20,16 @@ class TodoController extends Controller
         return redirect('/');
     }
     public function update(Request $request){
-        // $this -> validate($request,TodoList::$rules);
-        // $form = $request->all();
-        // unset($form['_token']);
-        // TodoList::where('id',$request->id)->update($form);
-        // return redirect('/');
-        return $request;
+        $this -> validate($request,TodoList::$rules);
+        $form = $request->all();
+        unset($form['_token']);
+        TodoList::where('id',$request->id)->update($form);
+        return redirect('/');
+        // return $request;
     }
     public function delete(Request $request){
-        // TodoList::find($request->id)->delete();
-        // return redirect('/');
-        return $request;
+        TodoList::find($request->id)->delete();
+        return redirect('/');
+        // return $request;
     }
 }
