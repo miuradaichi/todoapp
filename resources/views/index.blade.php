@@ -13,6 +13,13 @@
         <h1>Todo List</h1>
             <form action="/todo/create" method="post">
                 @csrf
+                    @if (count($errors) > 0)
+                        <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                        </ul>
+                    @endif
                 <div class="parent">
                     <input type="text" name="content" class="txtbox">
                     <input type="submit" value="追加" formaction="/todo/create" class="add">
